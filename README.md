@@ -1,23 +1,42 @@
 <H1>Hello archer</H1>
-1. Download iso to make bootable usb: http://mirror.bizflycloud.vn/archlinux/iso/2021.12.01/
-2. Use `iwctl` to connect wifi
-3. Partition the disks with fdisk: `fdisk -l`, `fdisk /dev/the_disk_to_be_partitioned`
-4. Format the partitions: `mkfs.ext4 /dev/root_partition`, `mkswap /dev/swap_partition`, `mkfs.fat -F 32 /dev/efi_system_partition`
-5. Mount the file systems: `mount /dev/root_partition /mnt`, `mount /dev/efi_system_partition /mnt/boot`, `swapon /dev/swap_partition`
-6. Install essential packages: pacstrap /mnt base linux linux-firmware
-7. genfstab -U /mnt >> /mnt/etc/fstab
-8. arch-chroot /mnt
-9. ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-10. hwclock --systohc
-11. locale-gen
-12. sudo vim /etc/locale.conf --> uncomment LANG=en_US.UTF-8
-13. Set hostname: sudo vim /etc/hostname
-14. Initramfs: mkinitcpio -P
-15. passwd
-16. Install grub --> Legacy: `grub-install --target=i386-pc /dev/sdX` --> UEFI: pacman -S grub efibootmgr --> mount EFI to /boot/EFI --> `grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB`
-17. `grub-mkconfig -o /boot/grub/grub.cfg`
-18. `pacman -S os-prober` --> vim `/etc/default/grub` --> `GRUB_DISABLE_OS_PROBER=false`
-19.exit --> umount -R /mnt --> reboot
+
+Download iso to make bootable usb: http://mirror.bizflycloud.vn/archlinux/iso/2021.12.01/
+
+Use `iwctl` to connect wifi
+
+Partition the disks with fdisk: `fdisk -l`, `fdisk /dev/the_disk_to_be_partitioned`
+
+Format the partitions: `mkfs.ext4 /dev/root_partition`, `mkswap /dev/swap_partition`, `mkfs.fat -F 32 /dev/efi_system_partition`
+
+Mount the file systems: `mount /dev/root_partition /mnt`, `mount /dev/efi_system_partition /mnt/boot`, `swapon /dev/swap_partition`
+
+Install essential packages: pacstrap /mnt base linux linux-firmware
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt
+
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+
+hwclock --systohc
+
+locale-gen
+
+sudo vim /etc/locale.conf --> uncomment LANG=en_US.UTF-8
+
+Set hostname: sudo vim /etc/hostname
+
+Initramfs: mkinitcpio -P
+
+passwd
+
+Install grub --> Legacy: `grub-install --target=i386-pc /dev/sdX` --> UEFI: pacman -S grub efibootmgr --> mount EFI to /boot/EFI --> `grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB`
+
+`grub-mkconfig -o /boot/grub/grub.cfg`
+
+`pacman -S os-prober` --> vim `/etc/default/grub` --> `GRUB_DISABLE_OS_PROBER=false`
+
+exit --> umount -R /mnt --> reboot
 
 <H2>Install recommend package:</H2>
 
@@ -53,6 +72,46 @@ cd yay
 makepkg -si
 yay -Syyuu
   
+```
+
+
+> nvidia
+```
+pms nvidia nvidia-utils nvidia-settings xorg-server-devel opencl-nvidia 
+```
+
+> check disable nouveau
+```
+cat /usr/lib/modprobe.d/nvidia.conf
+```
+
+> etc/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf
+```
+Section "OutputClass"
+    Identifier "intel"
+    MatchDriver "i915"
+    Driver "modesetting"
+EndSection
+
+Section "OutputClass"
+    Identifier "nvidia"
+    MatchDriver "nvidia-drm"
+    Driver "nvidia"
+    Option "AllowEmptyInitialConfiguration"
+    Option "PrimaryGPU" "yes"
+    ModulePath "/usr/lib/nvidia/xorg"
+    ModulePath "/usr/lib/xorg/modules"
+EndSection
+```
+
+> .xinitrc
+```
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+```
+> check 3D
+```
+glxinfo | grep NVIDIA
 ```
 
 
