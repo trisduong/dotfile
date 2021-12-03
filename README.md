@@ -26,7 +26,7 @@ sudo vim /etc/locale.conf --> uncomment LANG=en_US.UTF-8
 
 Set hostname: sudo vim /etc/hostname
 
-Initramfs: mkinitcpio -P
+Initramfs: mkinitcpio -P # Init environment ramdisk
 
 passwd
 
