@@ -1,4 +1,4 @@
-#Hello archer
+<H1>Hello archer
 1. Download iso to make bootable usb: http://mirror.bizflycloud.vn/archlinux/iso/2021.12.01/
 2. Use `iwctl` to connect wifi
 3. Partition the disks with fdisk: `fdisk -l`, `fdisk /dev/the_disk_to_be_partitioned`
@@ -19,20 +19,32 @@
 18. `pacman -S os-prober` --> vim `/etc/default/grub` --> `GRUB_DISABLE_OS_PROBER=false`
 19.exit --> umount -R /mnt --> reboot
 
-#Install recommend package:
+<H2>Install recommend package:
 
 **Font:**
-```mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf```
+```
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+  
+```
 
 **Xorg**
-```sudo pacman -S xorg-server xorg-apps xorg-xinit```
+```
+sudo pacman -S xorg-server xorg-apps xorg-xinit
+  
+```
 
 **Audio**
-```sudo pacman -S alsa alsa-utils alsa-plugins alsa-lib pavucontrol```
+```
+sudo pacman -S alsa alsa-utils alsa-plugins alsa-lib pavucontrol
+  
+```
 
 **Add user**
-```useradd -m -g wheel tris```
+```
+useradd -m -g wheel tris
+  
+```
 
 **Install yay***
 ```
@@ -40,6 +52,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 yay -Syyuu
+  
 ```
 
 
