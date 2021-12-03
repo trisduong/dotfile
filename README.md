@@ -21,19 +21,26 @@
 
 #Install recommend package:
 
-Font: ***mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf***
+**Font:**
+```mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf```
 
-***sudo pacman -S xorg-server xorg-apps xorg-xinit***
+**Xorg**
+```sudo pacman -S xorg-server xorg-apps xorg-xinit```
 
-***sudo pacman -S alsa alsa-utils alsa-plugins alsa-lib pavucontrol***
+**Audio**
+```sudo pacman -S alsa alsa-utils alsa-plugins alsa-lib pavucontrol```
 
-***useradd -m -g wheel tris***
+**Add user**
+```useradd -m -g wheel tris```
 
-***git clone https://aur.archlinux.org/yay.git
+**Install yay***
+```
+git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-yay -Syyuu***
+yay -Syyuu
+```
 
 
 
