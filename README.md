@@ -33,8 +33,7 @@ cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Co
 ***git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-yay -Syyuu
-***
+yay -Syyuu***
 
 
 
