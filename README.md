@@ -30,7 +30,7 @@ Initramfs: mkinitcpio -P
 
 passwd
 
-Install grub --> Legacy: `grub-install --target=i386-pc /dev/sdX` --> UEFI: pacman -S grub efibootmgr --> mount EFI to /boot/EFI --> `grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB`
+Install grub --> Legacy: `grub-install --target=i386-pc /dev/sdX` --> UEFI: pacman -S grub efibootmgr --> mount EFI to /boot/EFI --> `grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=GRUB`
 
 `grub-mkconfig -o /boot/grub/grub.cfg`
 
@@ -65,7 +65,7 @@ useradd -m -g wheel tris
   
 ```
 
-**Install yay***
+**Install yay**
 ```
 git clone https://aur.archlinux.org/yay.git
 cd yay
