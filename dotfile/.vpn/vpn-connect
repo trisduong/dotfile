@@ -1,0 +1,11 @@
+#! /bin/bash
+VPNHOME=/home/tris/.vpn
+AUTHFILE=$VPNHOME/auth
+cd $VPNHOME
+rm $AUTHFILE
+touch $AUTHFILE
+echo "tridv@bizflycloud.vn" > $AUTHFILE
+echo $(/usr/bin/oathtool --base32 --totp ORZGSZDWIAAAAAAA)0889369886 >> $AUTHFILE
+chmod 400 $AUTHFILE
+sudo /usr/bin/openvpn --config bizflycloud-dev.ovpn --auth-user-pass $AUTHFILE >> /var/log/openvpn.log 2>&1 &
+
