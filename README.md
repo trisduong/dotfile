@@ -1,4 +1,4 @@
-<H1>Hello archer
+<H1>Hello archer</H1>
 1. Download iso to make bootable usb: http://mirror.bizflycloud.vn/archlinux/iso/2021.12.01/
 2. Use `iwctl` to connect wifi
 3. Partition the disks with fdisk: `fdisk -l`, `fdisk /dev/the_disk_to_be_partitioned`
@@ -19,7 +19,7 @@
 18. `pacman -S os-prober` --> vim `/etc/default/grub` --> `GRUB_DISABLE_OS_PROBER=false`
 19.exit --> umount -R /mnt --> reboot
 
-<H2>Install recommend package:
+<H2>Install recommend package:</H2>
 
 **Font:**
 ```
