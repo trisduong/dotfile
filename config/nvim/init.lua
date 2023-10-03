@@ -1,30 +1,23 @@
--- load all plugins
-require "pluginList"
-require "misc-utils"
-require "top-bufferline"
+require "core"
 
-local g = vim.g
+local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
 
-g.mapleader = " "
-g.auto_save = false
+if custom_init_path then
+  dofile(custom_init_path)
+end
 
--- colorscheme related stuff
+require("core.utils").load_mappings()
 
-g.nvchad_theme = "onedark"
-local base16 = require "base16"
-base16(base16.themes["onedark"], true)
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-require "highlights"
-require "mappings"
-require "file-icons"
-require "statusline"
+-- bootstrap lazy.nvim!
+if not vim.loop.fs_stat(lazypath) then
+  require("core.bootstrap").gen_chadrc_template()
+  require("core.bootstrap").lazy(lazypath)
+end
 
--- hide line numbers , statusline in specific buffers!
-vim.api.nvim_exec(
-    [[
-   au BufEnter term://* setlocal nonumber
-   au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
-   au BufEnter term://* set laststatus=0 
-]],
-    false
-)
+-- vim.opt.swapfile = false
+
+dofile(vim.g.base46_cache .. "defaults")
+vim.opt.rtp:prepend(lazypath)
+require "plugins"
