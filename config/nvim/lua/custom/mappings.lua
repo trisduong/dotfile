@@ -22,7 +22,7 @@ M.copilot = {
   i = {
     ["<C-l>"] = {
       function()
-        require("copilot.suggestion").accept_line()
+        require("copilot.suggestion").accept()
       end,
       "Copilot Accept"
     }
@@ -77,11 +77,12 @@ M.general = {
     ["<leader>sa"] = { "<cmd> wa <CR>", "Save all file" },
     ["<leader>q"] = { "<cmd> q <CR>", "Quit windows" },
     ["<leader>qa"] = { "<cmd> conf qa <CR>", "Quit all windows" },
-    ["<leader>tr"] = {
+    ["<leader>bg"] = {
       function ()
         require("base46").toggle_transparency()
       end, "Toggle transparency"
     },
+    ["<leader>f"] = { "<cmd> silent Format <CR>", "Format file"}
   }
 }
 

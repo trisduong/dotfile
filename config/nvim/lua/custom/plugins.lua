@@ -1,5 +1,26 @@
 local plugins = {
   {
+    "mhartington/formatter.nvim",
+    lazy = false,
+    config = function()
+      require("formatter").setup({
+        filetype = {
+          python = {
+            require("formatter.filetypes.python").black,
+          },
+
+          lua = {
+            require("formatter.filetypes.lua").stylua,
+          },
+
+          ["*"] = {
+            require("formatter.filetypes.any").remove_trailing_whitespace,
+          },
+        },
+      })
+    end,
+  },
+  {
       "kylechui/nvim-surround",
       version = "*", -- Use for stability; omit to use `main` branch for the latest features
       event = "VeryLazy",
