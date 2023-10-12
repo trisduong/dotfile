@@ -1,5 +1,31 @@
 local plugins = {
   {
+    {
+      'akinsho/toggleterm.nvim',
+      lazy = false,
+      version = "*",
+      config = true
+    },
+  },
+  {
+    "lewis6991/hover.nvim",
+    lazy = false,
+    config = function()
+      require("hover").setup({
+        init = function ()
+          require("hover.providers.lsp")
+        end,
+        preview_opts = {
+            border = nil
+        },
+        -- Whether the contents of a currently open hover window should be moved
+        -- to a :h preview-window when pressing the hover keymap.
+        preview_window = false,
+        title = true
+      })
+    end,
+  },
+  {
     "mhartington/formatter.nvim",
     lazy = false,
     config = function()
@@ -21,14 +47,11 @@ local plugins = {
     end,
   },
   {
-      "kylechui/nvim-surround",
-      version = "*", -- Use for stability; omit to use `main` branch for the latest features
-      event = "VeryLazy",
-      config = function()
-          require("nvim-surround").setup({
-              -- Configuration here, or leave empty to use defaults
-          })
-      end
+    "ur4ltz/surround.nvim",
+    lazy = false,
+    config = function()
+      require("surround").setup({mappings_style = "surround"})
+    end
   },
   {
     "rcarriga/nvim-notify",
@@ -38,8 +61,14 @@ local plugins = {
     end
   },
   {
-    "mg979/vim-visual-multi",
+    "smoka7/multicursors.nvim",
     lazy = false,
+    event = "VeryLazy",
+    dependencies = {
+        'smoka7/hydra.nvim',
+    },
+    opts = {},
+    cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
   },
   {
     "m4xshen/hardtime.nvim",
@@ -198,6 +227,22 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
+    end,
+  },
+
+  -- overrides plugins
+  {
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    init = function()
+      require("core.utils").load_mappings "nvimtree"
+    end,
+    opts = function()
+      return require "custom.configs.overrides"
+    end,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "nvimtree")
+      require("nvim-tree").setup(opts.nvimtree)
     end,
   },
 }

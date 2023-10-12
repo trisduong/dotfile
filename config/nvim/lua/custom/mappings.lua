@@ -68,6 +68,16 @@ M.lspconfig = {
       end,
       "Diagnostic setloclist",
     },
+    ["<leader>k"] = {
+      function ()
+        require("hover").hover()
+      end, "Hover"
+    },
+    ["<leader>gk"] = {
+      function ()
+        require("hover").hover_select()
+      end, "Hover select"
+    }
   }
 }
 
@@ -82,7 +92,11 @@ M.general = {
         require("base46").toggle_transparency()
       end, "Toggle transparency"
     },
-    ["<leader>f"] = { "<cmd> silent Format <CR>", "Format file"}
+    ["<leader>f"] = { "<cmd> silent Format <CR>", "Format file"},
+    ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" }
+  },
+  v = {
+    ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" }
   }
 }
 
