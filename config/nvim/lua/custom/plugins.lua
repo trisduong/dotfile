@@ -1,11 +1,23 @@
 local plugins = {
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   {
-    {
-      'akinsho/toggleterm.nvim',
-      lazy = false,
-      version = "*",
-      config = true
-    },
+    "jinh0/eyeliner.nvim",
+    lazy = false,
+    config = function()
+      require("eyeliner").setup()
+    end,
+  },
+  {
+    "chrisgrieser/nvim-early-retirement",
+    lazy = false,
+    config = true,
+    event = "VeryLazy",
+  },
+  {
+    'akinsho/toggleterm.nvim',
+    lazy = false,
+    version = "*",
+    config = true
   },
   {
     "lewis6991/hover.nvim",
@@ -95,7 +107,9 @@ local plugins = {
     lazy = false,
     opts = {},
     config = function()
-      require("virt-column").setup()
+      require("virt-column").setup({
+        virtcolumn = "+1,120"
+      })
     end
   },
   {
