@@ -93,10 +93,49 @@ M.general = {
       end, "Toggle transparency"
     },
     ["<leader>f"] = { "<cmd> silent Format <CR>", "Format file"},
-    ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" }
+    ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" },
+    ["J"] = {"5j"},
+    ["K"] = {"5k"},
   },
   v = {
-    ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" }
+    ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" },
+    ["J"] = {"5j"},
+    ["K"] = {"5k"},
+  }
+}
+
+M.fold = {
+  n = {
+    ["zR"] = {
+      function ()
+        require('ufo').openAllFolds()
+      end
+    },
+    ["zM"] = {
+      function ()
+        require('ufo').closeAllFolds()
+      end
+    },
+    ["zr"] = {
+      function ()
+        require('ufo').openFoldsExceptKinds()
+      end
+    },
+    ["zm"] = {
+      function ()
+        require('ufo').closeFoldsWith()
+      end
+    },
+    ["zK"] = {
+      function ()
+        local winid = require('ufo').peekFoldedLinesUnderCursor()
+            if not winid then
+                -- choose one of coc.nvim and nvim lsp
+                vim.fn.CocActionAsync('definitionHover') -- coc.nvim
+                vim.lsp.buf.hover()
+            end
+      end
+    },
   }
 }
 
