@@ -96,6 +96,20 @@ M.general = {
     ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" },
     ["J"] = {"5j"},
     ["K"] = {"5k"},
+    ["<leader>gg"] = {
+      function()
+        local term = require("nvterm.terminal").new("float")
+        vim.api.nvim_chan_send(term.job_id, "lazygit\n")
+      end,
+      "open Lazygit",
+    },
+    ["<leader>gd"] = {
+      function()
+        local term = require("nvterm.terminal").new("float")
+        vim.api.nvim_chan_send(term.job_id, "lazydocker\n")
+      end,
+      "open LazyDocker",
+    },
   },
   v = {
     ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" },
