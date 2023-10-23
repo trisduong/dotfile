@@ -92,7 +92,7 @@ M.general = {
         require("base46").toggle_transparency()
       end, "Toggle transparency"
     },
-    ["<leader>f"] = { "<cmd> silent Format <CR>", "Format file"},
+    -- ["<leader>f"] = { "<cmd> silent Format <CR>", "Format file"},
     ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" },
     ["J"] = {"5j"},
     ["K"] = {"5k"},

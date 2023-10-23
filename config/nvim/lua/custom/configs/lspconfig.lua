@@ -11,3 +11,5 @@ lspconfig.pyright.setup({
   filetypes = {"python"},
 })
 
+lspconfig.ruff_lsp.setup({})
+

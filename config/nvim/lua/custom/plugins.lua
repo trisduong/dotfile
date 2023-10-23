@@ -51,6 +51,10 @@ local plugins = {
             require("formatter.filetypes.lua").stylua,
           },
 
+          html = {
+            require("formatter.filetypes.html").tidy,
+          },
+
           ["*"] = {
             require("formatter.filetypes.any").remove_trailing_whitespace,
           },
@@ -299,13 +303,13 @@ local plugins = {
       require("core.utils").load_mappings("dap_python")
     end,
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
-    opts = function()
-      return require "custom.configs.null-ls"
-    end,
-  },
+  -- {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   ft = {"python"},
+  --   opts = function()
+  --     return require "custom.configs.null-ls"
+  --   end,
+  -- },
   {
     "williamboman/mason.nvim",
     opts = {
