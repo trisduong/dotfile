@@ -110,6 +110,12 @@ M.general = {
       end,
       "open LazyDocker",
     },
+    ["<leader>lrn"] = {
+    function()
+      return "<cmd> IncRename "
+    end,
+    "Incremental rename"
+    },
   },
   v = {
     ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" },
@@ -148,6 +154,14 @@ M.fold = {
             end
       end
     },
+  }
+}
+
+M.http = {
+  n = {
+    ["<leader>hc"] = { "<Plug>RestNvim", "Rest Nvim" },
+    ["<leader>hcp"] = { "<Plug>RestNvimPreview", "Rest Nvim Preview" },
+    ["<leader>hcl"] = { "<Plug>RestNvimLast", "Rest Nvim Last" },
   }
 }
 

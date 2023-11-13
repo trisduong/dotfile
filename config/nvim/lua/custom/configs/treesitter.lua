@@ -21,6 +21,7 @@ local options = {
 
         -- others
         "jsonc",
+        "http"
       },
   highlight = {
     enable = true,

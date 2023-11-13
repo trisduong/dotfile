@@ -11,5 +11,16 @@ lspconfig.pyright.setup({
   filetypes = {"python"},
 })
 
-lspconfig.ruff_lsp.setup({})
+lspconfig.pylsp.setup {
+	settings = {
+		pylsp = {
+			plugins = {
+				ruff = {
+					enabled = true,
+					extendSelect = { "I" },
+				},
+			}
+		}
+	}
+}
 
