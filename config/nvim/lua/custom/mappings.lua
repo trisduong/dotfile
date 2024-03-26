@@ -116,6 +116,10 @@ M.general = {
     end,
     "Incremental rename"
     },
+    ["<leader>rr"] = {
+      ":%s///g<left><left>",
+      opts = { noremap = true, silent = true }
+    }
   },
   v = {
     ["<leader>mc"] = { "<cmd> MCstart <CR>", "Multi cursor" },

@@ -1,0 +1,59 @@
+# open terminal
+cmd - return : open -n -a "Terminal"
+
+# open chrome 
+cmd + shift - return : open -n -a "Google Chrome" 
+
+# moves focus between windows in the current focused display
+lcmd - h : yabai -m window --focus west
+lcmd - j : yabai -m window --focus south
+lcmd - k : yabai -m window --focus north
+lcmd - l : yabai -m window --focus east
+
+# float / unfloat window and center on screen
+lcmd - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
+
+# toggle window fullscreen zoom
+lcmd - f : yabai -m window --focus mouse && \
+          yabai -m window --toggle zoom-fullscreen
+
+# balance size of windows
+shift + lcmd - 0 : yabai -m space --balance
+
+# move window
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
+
+# send window to a space 
+shift + cmd - 1 : yabai -m window --space 1
+shift + cmd - 2 : yabai -m window --space 2
+shift + cmd - 3 : yabai -m window --space 3
+shift + cmd - 4 : yabai -m window --space 4
+shift + cmd - 5 : yabai -m window --space 5
+shift + cmd - 6 : yabai -m window --space 6
+shift + cmd - 7 : yabai -m window --space 7
+shift + cmd - 8 : yabai -m window --space 8
+shift + cmd - 9 : yabai -m window --space 9
+shift + cmd - 0 : yabai -m window --space 10
+
+# increase window size
+# fix that
+ctrl + cmd - h : yabai -m window --resize left:-40:0
+ctrl + cmd - j : yabai -m window --resize bottom:0:40
+ctrl + cmd - k : yabai -m window --resize top:0:-40
+ctrl + cmd - l : yabai -m window --resize right:40:0
+
+# decrease window size
+ctrl + shift + cmd - h : yabai -m window --resize left:40:0
+ctrl + shift + cmd - j : yabai -m window --resize bottom:0:-40
+ctrl + shift + cmd - k : yabai -m window --resize top:0:40
+ctrl + shift + cmd - l : yabai -m window --resize right:-40:0
+
+# restart yabai
+ctrl + shift + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+ctrl + shift + cmd - o : node ~/Projects/Personal/philips-hue-experiments/commands/turn-on.js --all
+ctrl + shift + cmd - f : node ~/Projects/Personal/philips-hue-experiments/commands/turn-off.js --all
