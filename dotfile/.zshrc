@@ -166,3 +166,5 @@ alias lzd="lazydocker"
 alias cdconf="cd ~/.config"
 alias cddot="cd ~/dotfile"
 
+source /usr/share/nvm/init-nvm.sh
+export PATH=~/.yarn/bin/:$PATH

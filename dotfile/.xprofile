@@ -1,0 +1,4 @@
+exec slstatus &
+export $(dbus-launch)
+xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 1080x329 --rotate normal --output DP-1 --mode 1920x1080 --pos 0x0 --rotate left --right-of HDMI-1 --output HDMI-2 --off
+feh --bg-scale /home/tris/dotfile/background.jpg
