@@ -51,4 +51,4 @@ skhd --start-service
 # Set macOS preferences - we will run this last because this will reload the shell
 source ./.macos
 
-# note: icon, source alias, role for karabiner, 1password, config
+echo "Remember to create workspace and anable default changing shortcut for workspace manually"
