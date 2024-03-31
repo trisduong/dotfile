@@ -20,7 +20,6 @@ brew 'svn' # Needed to install fonts
 brew 'lazydocker'
 brew 'yabai'
 brew 'skhd'
-brew 'zsh-autosuggestions'
 brew 'yarn'
 brew 'ruff'
 brew 'ruff-lsp'

@@ -8,7 +8,7 @@ alias compile="commit 'compile'"
 alias version="commit 'version'"
 
 # Directories
-alias dotfiles="cd $DOTFILES"
+alias dotfiles="cd $HOME/.dotfiles/"
 alias library="cd $HOME/Library"
 alias projects="cd $HOME/Code"
 
@@ -59,3 +59,21 @@ alias cdw=cdwork
 alias lzd="lazydocker"
 alias cdconf="cd ~/.config"
 alias cddot="cd ~/dotfile"
+
+set clipboard+=unnamedplus
+
+# vim mode
+bindkey -v
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey '^e' edit-command-line
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+export KEYTIMEOUT=10
+bindkey -M viins '^r' history-incremental-search-backward
+
+export EDITOR=nvim
+
+# zsh auto suggestion
+bindkey '^ ' autosuggest-accept

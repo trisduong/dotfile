@@ -1,9 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -106,63 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="nvim"
-alias cdw="~/Projects/Works/"
-alias cdt="~/Projects/Tests/"
-alias dpsa="sudo docker ps -a"
-alias d="docker"
-alias dp="docker-compose"
-alias status="sudo systemctl status"
-alias start="sudo systemctl start"
-alias enable="sudo systemctl enable"
-alias restart="sudo systemctl restart"
-alias stop="sudo systemctl stop"
-
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-set clipboard+=unnamedplus
+#
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# vim mode
-bindkey -v
-bindkey -M viins 'jk' vi-cmd-mode
-bindkey '^e' edit-command-line
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-export KEYTIMEOUT=10
-bindkey -M viins '^r' history-incremental-search-backward
-
-export $(dbus-launch)
-
-export EDITOR=nvim
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-cdsite() {
-  cd ~/.pyenv/versions/$1/lib/python*/site-packages
-}
-alias cdsite=cdsite
-
-cdwork() {
-  cd ~/Projects/Works/$1/
-}
-alias cdw=cdwork
-
-# add binary
-export PATH=~/.local/bin:$PATH
-
-# zsh auto suggestion
-bindkey '^ ' autosuggest-accept
-
-# general
-alias lzd="lazydocker"
-alias cdconf="cd ~/.config"
-alias cddot="cd ~/dotfile"
-

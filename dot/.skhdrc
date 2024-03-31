@@ -1,5 +1,5 @@
 # open terminal
-lcmd - return : open -n -a "Terminal"
+lcmd - return : open -n -a "Alacritty"
 
 # moves focus between windows in the current focused display
 lcmd - h : yabai -m window --resize right:-20:0 2> /dev/null || yabai -m window --resize left:-20:0 2> /dev/null
