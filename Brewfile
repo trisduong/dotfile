@@ -31,7 +31,7 @@ brew 'pyenv-virtualenv'
 brew 'node'
 brew 'nvm'
 brew 'powerlevel10k'
-brew 'alacritty'
+brew 'ripgrep'
 
 # Apps
 cask '1password'
