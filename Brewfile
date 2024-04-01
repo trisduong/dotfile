@@ -2,6 +2,7 @@
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
+tap 'koekeishiya/formulae'
 
 # Binaries
 brew 'awscli'
@@ -30,12 +31,14 @@ brew 'pyenv-virtualenv'
 brew 'node'
 brew 'nvm'
 brew 'powerlevel10k'
+brew 'alacritty'
 
 # Apps
 cask '1password'
 cask 'docker'
 cask 'firefox-developer-edition'
 cask 'vivaldi'
+cask 'alacritty'
 cask 'karabiner-elements'
 cask 'betterdisplay'
 
@@ -45,7 +48,7 @@ cask 'font-open-sans'
 cask 'font-roboto'
 cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
+# cask 'font-source-sans-pro'
+# cask 'font-source-serif-pro'
 cask 'font-hack-nerd-font'
 cask 'font-symbols-only-nerd-font'

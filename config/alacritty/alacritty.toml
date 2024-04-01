@@ -1,0 +1,81 @@
+ipc_socket = true
+live_config_reload = true
+
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[colors.bright]
+black = "#384148"
+blue = "#8cc1ff"
+cyan = "#90daff"
+green = "#94f7c5"
+magenta = "#e2a6ff"
+red = "#fc7b81"
+white = "#fafdff"
+yellow = "#ffeba6"
+
+[colors.cursor]
+cursor = "#f5f5f5"
+text = "CellForeground"
+
+[colors.normal]
+black = "#1c252c"
+blue = "#70a5eb"
+cyan = "#74bee9"
+green = "#78dba9"
+magenta = "#c68aee"
+red = "#e05f65"
+white = "#dee1e6"
+yellow = "#f1cf8a"
+
+[colors.primary]
+background = "#171b20"
+foreground = "#b6beca"
+
+[cursor]
+thickness = 0.15
+unfocused_hollow = true
+vi_mode_style = "None"
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+builtin_box_drawing = true
+size = 15
+
+[font.bold]
+style = "Bold"
+
+[font.bold_italic]
+style = "Bold Italic"
+
+[font.italic]
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font Mono"
+style = "Regular"
+
+[scrolling]
+history = 1000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+decorations = "none"
+dynamic_padding = true
+dynamic_title = true
+opacity = 0.8
+option_as_alt = "Both"
