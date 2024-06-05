@@ -17,6 +17,9 @@ local options = {
        -- low level
         "rust",
         "go",
+        "gomod",
+        "gowork",
+        "gosum",
         "python",
 
         -- others

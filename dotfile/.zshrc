@@ -151,7 +151,7 @@ cdsite() {
 alias cdsite=cdsite
 
 cdwork() {
-  cd ~/Projects/Works/$1/
+  cd ~/Projects/Works/$1/ && pyenv activate $1
 }
 alias cdw=cdwork
 

@@ -39,3 +39,9 @@ lspconfig.tsserver.setup({
   capabilities = capabilities,
   filetypes = {"javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx"},
 })
+
+lspconfig.gopls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"go"},
+})
